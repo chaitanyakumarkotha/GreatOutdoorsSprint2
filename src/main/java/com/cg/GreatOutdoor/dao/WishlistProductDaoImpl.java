@@ -80,12 +80,12 @@ public class WishlistProductDaoImpl implements IWishlistProductDao{
 	@Override
 	public boolean checkId(long userId, long productId) throws ProductException {
 		if (userDao.checkUserId(userId) == true && ProductDao.checkProductId(productId) == true) {
-			//System.out.println("2");
+			
 			String str = "SELECT product.user.userId FROM WishlistProduct product";
 			TypedQuery<Long> query = entityManager.createQuery(str, Long.class);
 			List<Long> userIdList = query.getResultList();
 			if (userIdList.contains(userId)) {
-				//System.out.println("3");
+				
 				String str2 = "SELECT product.productId FROM WishlistProduct product WHERE product.user.userId=:userId";
 				TypedQuery<Long> query2 = entityManager.createQuery(str2, Long.class);
 				query2.setParameter("userId", userId);
@@ -110,20 +110,20 @@ public class WishlistProductDaoImpl implements IWishlistProductDao{
 **********************************/
 	@Override
 	public boolean deleteProduct(long userId, long productId) {
-		//System.out.println("1");
+		
 		if (userDao.checkUserId(userId) == true && ProductDao.checkProductId(productId) == true) {
-			//System.out.println("2");
+			
 			String str = "SELECT product.user.userId FROM WishlistProduct product";
 			TypedQuery<Long> query = entityManager.createQuery(str, Long.class);
 			List<Long> userIdList = query.getResultList();
 			if (userIdList.contains(userId)) {
-				//System.out.println("3");
+				
 				String str2 = "SELECT product.productId FROM WishlistProduct product WHERE product.user.userId=:userId";
 				TypedQuery<Long> query2 = entityManager.createQuery(str2, Long.class);
 				query2.setParameter("userId", userId);
 				List<Long> productList = query2.getResultList();
 				if (productList.contains(productId)) {
-					//System.out.println("4");
+					
 					String productQuery = "SELECT product FROM WishlistProduct product WHERE  product.user.userId=:userId  AND product.productId=:productId";
 					TypedQuery<WishlistProduct> query3 = entityManager.createQuery(productQuery, WishlistProduct.class);
 					query3.setParameter("userId", userId);
@@ -136,7 +136,7 @@ public class WishlistProductDaoImpl implements IWishlistProductDao{
 			}
 
 		}
-		//System.out.println("5");
+		
 		return false;
 
 	}
