@@ -79,10 +79,10 @@ public class UserDaoImpl implements IUserDao{
 
 		if (entityManager.find(User.class, userId) != null) {
 			
-			System.out.println("User id check");
+			
 			return true;
 		} else {
-			System.out.println("User id not check");
+			
 			return false;
 		}
 	}

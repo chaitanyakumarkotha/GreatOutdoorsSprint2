@@ -67,11 +67,11 @@ public class ProductDaoImpl implements IProductDao {
 		System.out.println(productId);
 		if (entityManager.find(Product.class, productId) != null) {
 			System.out.println(entityManager.find(Product.class, productId));
-			System.out.println("product id check");
+			
 			return true;
 		} else {
 			System.out.println(entityManager.find(Product.class, productId));
-			System.out.println("product id not check");
+			
 			return false;
 		}
 	}
