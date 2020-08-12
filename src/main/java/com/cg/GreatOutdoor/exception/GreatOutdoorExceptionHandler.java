@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GreatOutdoorExceptionHandler {
-	@ExceptionHandler({ProductException.class,UserException.class,AddressException.class})
+	@ExceptionHandler({ProductException.class,UserException.class})
 	public  ResponseEntity<Object> handle(Exception e)
 	{
 		return new ResponseEntity<Object>(e.getLocalizedMessage(),HttpStatus.FORBIDDEN);
