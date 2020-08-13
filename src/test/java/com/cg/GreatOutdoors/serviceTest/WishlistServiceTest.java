@@ -72,7 +72,8 @@ public class WishlistServiceTest {
 	@DisplayName("Test for retrieving wishlist products")
 	public void retrieveWishlistProductTest() throws ProductException
 	{
-		List<Product> list=wishlistProductService.retrive(1);
+		List<Product> list=wishlistProductService.retrive(123);
+		
 		assertFalse(list.isEmpty());
 	}
 	

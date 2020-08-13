@@ -63,7 +63,7 @@ public class WishlistProductServiceImpl implements IWishlistProductService {
 		 }
 		 else
 		 {
-			 System.out.println("last");
+			 //
 			 throw new ProductException("Not able to delete Product"); 
 		 }
 	
